@@ -17,7 +17,7 @@ function getUserNumberInput() {
 
 function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
   const calcDescription = `${resultBeforeCalc} ${operator} ${calcNumber}`;
-  outputResult(currentResult, calcDescription);
+  outputResult(currentResultWithFloat, calcDescription);
 }
 
 function writeToLog(
@@ -66,8 +66,10 @@ function modeOfCalculation(calculationType) {
     modeOperator = "/";
   }
 
+  currentResultWithFloat = currentResult.toFixed(2);
+
   createAndWriteOutput(modeOperator, initialResult, enteredNumber);
-  writeToLog(calculationType, initialResult, enteredNumber, currentResult);
+  writeToLog(calculationType, initialResult, enteredNumber, currentResultWithFloat);
 }
 
 function add() {
